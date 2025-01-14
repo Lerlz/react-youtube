@@ -1,0 +1,16 @@
+# Secured db and connection will be in a different brnch
+version: "3.9"
+services:
+  mongodb:
+    container_name: mongodb-todo
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword
+    volumes:
+      - mongodb-data:/data/db
+volumes:
+  mongodb-data:

@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - todo-net
+
+  # Backend service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/todolist
+    networks:
+      - todo-net
+    depends_on:
+      - mongodb
+    command: ["npm", "start"]
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile  # Ensure this path is correct
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - todo-net
+    depends_on:
+      - backend
+
+networks:
+  todo-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
