@@ -1,0 +1,99 @@
+.task-form {
+  width: 50%;
+  max-width: none;
+  margin: 0;
+  padding: 2rem 1.5rem;
+  background-color: #364461;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border: 1px solid #e2ddd9;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #f1c40f;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.submit-button {
+  background-color: #ff9d2e;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #f56218;
+}
+
+@media (max-width: 768px) {
+  .task-form {
+      padding: 1.3rem;
+      width: 85%;
+      margin-bottom: 1rem;
+  }
+
+  .form-group {
+      margin-bottom: 0.6rem;
+  }
+
+  .form-group label {
+      font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+      font-size: 0.8rem;
+  }
+
+  .submit-button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-group {
+      margin-bottom: 0.4rem;
+  }
+
+  .form-group label,
+  .submit-button {
+      font-size: 1rem;
+  }
+}
